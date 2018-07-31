@@ -1,8 +1,47 @@
 html, body {
-	font: 14px/1.21 'Helvetica Neue', arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	height: 100%;
+	font: calc(100% + 0.75vw)/1.5 -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
 	font-weight: 400;
 }
 
-h1 {
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	text-align: center;
+	/* background: pink; */
+	height: 100%;
+	flex-direction: column;
+	color: rgba(0,0,0,0.87);
+}
+
+.question{
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	margin: 0;
+	min-height: 60vh;
+	max-width: 980px;
+}
+
+.buttonGroup{
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+}
+
+.buttonGroup > input {	
+	border: none;
+	border-radius: 3px;
+	min-width: 8em;
+	height: 4em;
+	margin: 0 1em;
+	background: #20beff;
+	box-shadow: 0 0.25em 0.25em 0 rgba(0,0,0,0.2);
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer;
 }
