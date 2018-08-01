@@ -1,5 +1,5 @@
-export const Button = ({name}) => (
-    <button>
-        <span>{name}</span>
+export const Button = ({children, click, score, style}) => (
+    <button class={`btn ${style}`} onClick={() => click(score)}>
+        <span>{children}</span>
     </button>
 )

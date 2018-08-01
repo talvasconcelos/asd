@@ -1,3 +1,4 @@
+import { Button } from './button'
 export const Question = ({q, ans, i}) => {
 	let x = {}
 	switch (true) {
@@ -23,8 +24,10 @@ export const Question = ({q, ans, i}) => {
 			</div>			
 			{/* <Button name={x.pos.v} onClick={() => ans(x.pos.s)} /> */}
 			<div class='buttonGroup'>
-				<input type="button" value={x.pos.v} onClick={() => ans(x.pos.s)} />
-				<input type="button" value={x.neg.v} onClick={() => ans(x.neg.s)} />
+				{/* <input type="button" value={x.pos.v} onClick={() => ans(x.pos.s)} />
+				<input type="button" value={x.neg.v} onClick={() => ans(x.neg.s)} /> */}
+				<Button style='sun' click={ans} score={x.pos.s}>{x.pos.v}</Button>
+				<Button style='sun' click={ans} score={x.neg.s}>{x.neg.v}</Button>
 			</div>
 			{/* <p>{this.state.finished && model.predict(tf.tensor2d(answers, [1, 13])).dataSync()[0]}</p> */}
 		</div>

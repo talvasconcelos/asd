@@ -4,7 +4,9 @@ import { Component } from 'preact'
 import * as tf from '@tensorflow/tfjs'
 import questions from './questions'
 
-import {Question} from './components/questionForm'
+import { Question } from './components/questionForm'
+import { Button } from './components/button'
+import { Score } from './components/score'
 
 // const a = Array.from({length: 13}, () => Math.round(Math.random()))
 // const data = tf.tensor2d(a, [1, 13])
@@ -17,7 +19,7 @@ export default class App extends Component {
 		this.load()
 
 		this.getNextQuestion = this.getNextQuestion.bind(this)
-		// this.predict = this.predict.bind(this)
+		this.restart = this.restart.bind(this)
 	}
 
 	state = {
@@ -28,12 +30,25 @@ export default class App extends Component {
 		question: null,
 		answers: [],
 		finished: false,
-		prediction: 0
+		prediction: null
 	}
 
-	async load(){
-		const model = await tf.loadModel('model/asdModel.json')
-		this.setState({model, loaded: true})
+	load(){
+		let self = this
+
+		const model = tf.loadModel('assets/model/asdModel.json')
+		model.then((m) => self.setState({model: m, loaded: true}))
+	}
+
+	restart(){
+		this.setState({
+			finished: false,
+			answers: [],
+			prediction: null,
+			q_number: 0,
+			questions: questions.values()
+		})
+		this.startQuestions()
 	}
 
 	startQuestions(){
@@ -57,7 +72,8 @@ export default class App extends Component {
 
 	predict() {
 		let p = this.state.model.predict(tf.tensor2d(this.state.answers, [1, 13])).dataSync()[0]
-		this.setState({prediction: Math.round(p * 100)})
+		this.setState({prediction: p})
+		console.log(p)
 	}
 
 	componentDidMount(){
@@ -65,17 +81,18 @@ export default class App extends Component {
 		this.startQuestions()
 	}
 
-	render({}, {question, finished, q_number}) {
+	render({}, {question, finished, q_number, prediction}) {
 		return (
-			<main>
+			<main class='fresh text-light'>
 				{!finished && <Question 
 					q={question} 
-					ans={this.getNextQuestion} 
+					ans={this.getNextQuestion}
 					i={q_number}/>}
-				{finished && 
-					<div>
-						<h3>{`The probability that the toddler may have ASD is: ${this.state.prediction}%`}</h3>
-					</div>}
+				{finished &&
+					<Score score={prediction}>
+						<Button style='verm' click={this.restart}>Redo test</Button>
+					</Score>
+				}
 			</main>
 		)
 	}
@@ -88,4 +105,13 @@ const data = tf.tensor2d(a, [1, 13])
 console.log(a)
 
 <p>{loaded && model.predict(data).dataSync()[0]}</p>
+
+<div>
+						{prediction > 0.5 && }
+						<h3>{`The probability that the toddler may have ASD is:`}</h3>
+						<p>{this.state.prediction}</p>
+						
+							<Button style='verm' click={this.restart}>Redo test</Button>
+						
+					</div>
 */

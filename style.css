@@ -5,6 +5,7 @@ html, body {
 	height: 100%;
 	font: calc(100% + 0.75vw)/1.5 -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto;
 	font-weight: 400;
+	color: rgba(0,0,0,0.87);
 }
 
 main {
@@ -12,10 +13,15 @@ main {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	/* background: pink; */
 	height: 100%;
+	padding: 0 5%;
 	flex-direction: column;
-	color: rgba(0,0,0,0.87);
+}
+
+small {
+	font-size: 70%;
+	line-height: 0.75;
+	margin: 0 auto;
 }
 
 .question{
@@ -29,19 +35,28 @@ main {
 
 .buttonGroup{
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	justify-content: center;	
+	justify-content: center;
 }
 
-.buttonGroup > input {	
+.btn {	
 	border: none;
 	border-radius: 3px;
 	min-width: 8em;
-	height: 4em;
-	margin: 0 1em;
-	background: #20beff;
+	height: 3em;
+	margin: 0.75em 0.75em;
+	background: #DFDCE3;
 	box-shadow: 0 0.25em 0.25em 0 rgba(0,0,0,0.2);
 	font-weight: bold;
 	font-size: 16px;
 	cursor: pointer;
 }
+
+.text-light{color: #DFDCE3;}
+
+.fresh{background: #4ABDAC;}
+
+.verm{background: #FC4A1A;}
+
+.sun{background: #F7B733;}

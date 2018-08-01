@@ -5,7 +5,7 @@ export default [
     `Does your child point to share interest with you? (e.g. pointing at an interesting sight)`,
     `Does your child pretend? (e.g. care for dolls, talk on a toy phone, etc...)`,
     `Does your child follow where you’re looking?`,
-    `If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them? (e.g. stroking hair, hugging them, etc...)`,
+    `If you or someone else in the family is visibly upset, does your child show signs of wanting to comfort them?`,
     `Would you describe your child’s first words as normal, (very) typical?`,
     `Does your child use simple gestures? (e.g. wave goodbye)`,
     `Does your child stare at nothing with no apparent purpose?`,

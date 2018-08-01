@@ -1,11 +1,11 @@
 {
-  "name": "asd",
-  "short_name": "asd",
+  "name": "AI Q-CHAT",
+  "short_name": "AI Q-CHAT",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#fff",
-  "theme_color": "#673ab8",
+  "background_color": "#4ABDAC",
+  "theme_color": "#4ABDAC",
   "icons": [
     {
       "src": "/assets/icon.png",
