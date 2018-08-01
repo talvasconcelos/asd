@@ -16,6 +16,7 @@ main {
 	height: 100%;
 	padding: 0 5%;
 	flex-direction: column;
+	overflow-x: hidden; 
 }
 
 small {
@@ -53,6 +54,23 @@ small {
 	cursor: pointer;
 }
 
+progress{
+	appearance: none;
+	border: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 0.25em;
+}
+
+progress::-webkit-progress-bar{
+	background: #4ABDAC;
+}
+
+progress::-webkit-progress-value{
+	background: rgba(0,0,0,0.2);
+}
+
 .text-light{color: #DFDCE3;}
 
 .fresh{background: #4ABDAC;}
@@ -60,3 +78,29 @@ small {
 .verm{background: #FC4A1A;}
 
 .sun{background: #F7B733;}
+
+#share-buttons {
+	margin-top: 1em;
+}
+
+#share-buttons svg {
+	width: 35px;
+	padding: 5px;
+	border: 0;
+	box-shadow: 0;
+	display: inline;
+}
+
+.facebook {
+	fill: #3B5998;
+}
+
+.twitter {
+	fill: #1DA1F2;
+}
+
+.reddit {
+	fill: #D82C20;
+}
+
+

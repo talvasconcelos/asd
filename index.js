@@ -7,6 +7,8 @@ import questions from './questions'
 import { Question } from './components/questionForm'
 import { Button } from './components/button'
 import { Score } from './components/score'
+import { Progress } from './components/progress'
+import { Share } from './components/sharing'
 
 // const a = Array.from({length: 13}, () => Math.round(Math.random()))
 // const data = tf.tensor2d(a, [1, 13])
@@ -84,6 +86,7 @@ export default class App extends Component {
 	render({}, {question, finished, q_number, prediction}) {
 		return (
 			<main class='fresh text-light'>
+				{!finished && <Progress max='12' val={q_number}/>}
 				{!finished && <Question 
 					q={question} 
 					ans={this.getNextQuestion}
@@ -91,6 +94,7 @@ export default class App extends Component {
 				{finished &&
 					<Score score={prediction}>
 						<Button style='verm' click={this.restart}>Redo test</Button>
+						<Share />
 					</Score>
 				}
 			</main>
